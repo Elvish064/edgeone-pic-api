@@ -1,4 +1,15 @@
 {
+  "headers": [
+    {
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ],
+      "source": "/images/*"
+    }
+  ],
     "redirects": [
       {
         "source": "/pc",
