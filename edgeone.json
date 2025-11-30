@@ -1,15 +1,40 @@
 {
-  "headers": [
-    {
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ],
-      "source": "/images/*"
-    }
-  ],
+   "headers": [
+       {
+         "headers": [
+           {
+             "key": "Access-Control-Allow-Origin",
+             "value": "*"
+           },
+           {
+             "key": "Access-Control-Allow-Methods",
+             "value": "GET, POST, OPTIONS"
+           },
+           {
+             "key": "Access-Control-Allow-Headers",
+             "value": "Content-Type, User-Agent"
+           }
+         ],
+         "source": "/images/*"
+       },
+       {
+         "headers": [
+           {
+             "key": "Access-Control-Allow-Origin",
+             "value": "*"
+           },
+           {
+             "key": "Access-Control-Allow-Methods",
+             "value": "GET, OPTIONS"
+           },
+           {
+             "key": "Access-Control-Allow-Headers",
+             "value": "Content-Type, User-Agent"
+           }
+         ],
+         "source": "/api/*"
+       }
+     ],
     "redirects": [
       {
         "source": "/pc",
