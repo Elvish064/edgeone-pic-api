@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机图片API - 介绍与使用说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #22a150 0%, #2220fc 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 20px 0 10px;
+            font-size: 1.3rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .endpoint {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            background: #edf2f7;
+            border-radius: 6px;
+            border-left: 4px solid #4299e1;
+        }
+        
+        .method {
+            background: #4299e1;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-right: 15px;
+            min-width: 70px;
+            text-align: center;
+        }
+        
+        .url {
+            font-family: 'Courier New', monospace;
+            font-weight: 500;
+        }
+        
+        .example {
+            background: #f7fafc;
+            border-left: 4px solid #48bb78;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        .example h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        
+        .example a {
+            color: #3182ce;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        .example a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #718096;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 40px 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 20px;
+            }
+            
+            .endpoint {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .method {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>随机图片API</h1>
+            <p class="subtitle">一个简单易用的随机图片服务，提供横屏、竖屏图片，支持设备自适应</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section id="introduction">
+            <h2>API介绍</h2>
+            <p>这是一个基于EdgeOne Pages的随机图片API服务，可以根据您的需求返回不同类型的随机图片。</p>
+            <p>我们的图片库包含大量高质量的横屏和竖屏图片，适合各种应用场景。</p>
+        </section>
+        
+        <section id="usage">
+            <h2>使用方法</h2>
+            <p>通过简单的HTTP GET请求即可获取随机图片，支持以下参数：</p>
+            
+            <div class="endpoint">
+                <div class="method">GET</div>
+                <div class="url">/pc</div>
+            </div>
+            <p>获取横屏随机图片，适合桌面设备使用。</p>
+            
+            <div class="endpoint">
+                <div class="method">GET</div>
+                <div class="url">/pe</div>
+            </div>
+            <p>获取竖屏随机图片，适合移动设备使用。</p>
+            
+            <div class="endpoint">
+                <div class="method">GET</div>
+                <div class="url">/ua</div>
+            </div>
+            <p>根据用户设备类型自动选择图片类型（桌面设备返回横屏，移动设备返回竖屏）。</p>
+        </section>
+        
+        <section id="examples">
+            <h2>使用示例</h2>
+            
+            <div class="example">
+                <h4>获取横屏图片</h4>
+                <a href="/pc" target="_blank">/pc</a>
+            </div>
+            
+            <div class="example">
+                <h4>获取竖屏图片</h4>
+                <a href="/pe" target="_blank">/pe</a>
+            </div>
+            
+            <div class="example">
+                <h4>根据设备自动选择</h4>
+                <a href="/ua" target="_blank">/ua</a>
+            </div>
+            
+            
+        </section>
+        
+        <section id="features">
+            <h2>特性与优势</h2>
+            <ul>
+                <li><strong>快速响应</strong> - 基于边缘计算，全球加速</li>
+                <li><strong>无需API密钥</strong> - 直接调用，简单方便</li>
+                <li><strong>设备自适应</strong> - 自动识别设备类型返回合适图片</li>
+                <li><strong>高质量图片</strong> - 精选高质量图片资源</li>
+                <li><strong>永久免费</strong> - 个人使用完全免费</li>
+            </ul>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Copyright © <span id="currentYear"></span> Elvish</p>
+                <p class="text-gray-500 dark:text-gray-400 text-xs flex flex-wrap justify-center gap-4"><a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://icp.gov.moe/?keyword=20250030" target="_blank">萌ICP备20250030号</a></br><a class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors" href="https://beian.miit.gov.cn/" target="_blank">渝ICP备2025073510号</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 自动更新年份
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
