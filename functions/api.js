@@ -1006,6 +1006,18 @@ function getRandomImage(images) {
 }
 
 async function handleRequest(request) {
+  // 处理 CORS 预检请求
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, User-Agent',
+        'Access-Control-Max-Age': '86400',
+      }
+    });
+  }
   try {
     var url = new URL(request.url);
     var imgType = url.searchParams.get('type');
