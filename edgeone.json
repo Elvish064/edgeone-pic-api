@@ -101,7 +101,23 @@
         "source": "/ua",
         "destination": "/api/?type=ua",
         "statusCode": 302
+      },
+        {
+        "source": "/pc/:id",
+        "destination": "/api/?type=pc&id=:id",
+        "statusCode": 302
+      },
+      {
+        "source": "/pe/:id",
+        "destination": "/api/?type=pe&id=:id",
+        "statusCode": 302
+      },
+      {
+        "source": "/ua/:id",
+        "destination": "/api/?type=ua&id=:id",
+        "statusCode": 302
       }
       
     ]
 }
+
